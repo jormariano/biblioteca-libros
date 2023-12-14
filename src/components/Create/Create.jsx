@@ -1,6 +1,8 @@
+import './Create.css'
 import { useState } from "react"
-import { useAppContext } from "../Context/Store";
-import { Link } from "react-router-dom";
+import { useAppContext } from "../../Context/Store";
+import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 const Create = () => {
 
@@ -13,11 +15,13 @@ const Create = () => {
 
   const store = useAppContext();
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     e.preventDefault();
 
     const newBook = {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       title,
       author,
       cover,
@@ -28,9 +32,12 @@ const Create = () => {
 
     store.createItem(newBook);
 
+    navigate('/');
+
     setTitle('');
     setAuthor('');
     setSummary('');
+    setCompleted(false);
     setReview('');
   }
 
@@ -47,37 +54,39 @@ const Create = () => {
   }
 
   return (
-    <div>
-      <Link to='/'> Home </Link>
-      <form onSubmit={handleChange}>
-        <div>
-          <h2>Title</h2>
+
+    <form className='create-container' onSubmit={handleChange}>
+      <div className='create-img'>
+        {!!cover ? <img src={cover} alt='preview' /> : ''}
+      </div>
+      <div className='create-input-button'>
+        <div className='create-input'>
+          <h3>Title</h3>
           <input type='text' id='title' onChange={(e) => setTitle(e.target.value)} value={title} />
         </div>
-        <div>
-          <h2>Author</h2>
+        <div className='create-input'>
+          <h3>Author</h3>
           <input type='text' id='author' onChange={(e) => setAuthor(e.target.value)} value={author} />
         </div>
-        <div>
-          <h2>Cover</h2>
-          <input type='file' id='cover' onChange={handleChangeFile} />
-          <div>{!!cover ? <img src={cover} width="200" alt='preview' /> : ''} </div>
-        </div>
-        <div>
-          <h2>Summary</h2>
+        <div className='create-input'>
+          <h3>Summary</h3>
           <input type='text' id='summary' onChange={(e) => setSummary(e.target.value)} value={summary} />
         </div>
-        <div>
-          <h2>Completed</h2>
+        <div className='create-input'>
+          <input type='file' id='cover' onChange={handleChangeFile} />
+        </div>
+        <div className='create-input'>
+          <h3>Completed</h3>
           <input type='checkbox' id='completed' onChange={(e) => setCompleted(e.target.checked)} value={completed} />
         </div>
-        <div>
-          <h2>Review</h2>
+        <div className='create-input'>
+          <h3>Review</h3>
           <input type='text' id='review' onChange={(e) => setReview(e.target.value)} value={review} />
         </div>
-        <button type="submit" >REGISTER BOOK</button>
-      </form>
-    </div>
+        <button className='create-button' type="submit"> REGISTER BOOK </button>
+      </div>
+    </form>
+
   )
 }
 

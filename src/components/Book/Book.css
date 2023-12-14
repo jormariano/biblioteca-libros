@@ -1,0 +1,22 @@
+.book-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 300px;
+    margin: 10px auto;
+}
+
+.book-container img {
+    width: 200px;
+    height: 280px;
+}
+
+.book-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}

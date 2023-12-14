@@ -1,4 +1,5 @@
 import './Home.css'
+import Book from '../Book/Book';
 import { useAppContext } from "../../Context/Store"
 
 const Home = () => {
@@ -6,11 +7,18 @@ const Home = () => {
   const store = useAppContext();
 
   return (
-    <div>
+    <>
+      <div className='home-arrow'>
+        <h2>Cargá tus libros y creá tu propio registro de lectura</h2>
+        <img src='./public/img/home-arrow.png' />
+      </div>
 
-      {store.items.map(item => <div key={item.id}>{item.title}</div>)}
+      <div className='home-container'>
 
-    </div>
+        {store.items.map(item => <Book key={item.id} item={item} />)}
+
+      </div>
+    </>
   )
 }
 

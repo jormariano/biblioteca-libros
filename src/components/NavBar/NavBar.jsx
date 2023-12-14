@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom"
 
 const NavBar = () => {
 
-    const imgLibros = "./public/books-icon.png"
+    const imgLibros = "./public/img/books-icon.png"
 
   return (
     <header>
