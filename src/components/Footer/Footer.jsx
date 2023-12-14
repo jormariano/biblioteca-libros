@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
 
-  const imgLogo = "./public/img/logo-01.png"
-  const imgGitHub = "./public/img/footer-icono-github.png"
-  const imgLinkedIn = "./public/img/footer-icono-linkedin.png"
-  const imgInstagram = "./public/img/footer-icono-instagram.png"
+  const imgLogo = "../../img/logo-01.png"
+  const imgGitHub = "../../img/footer-icono-github.png"
+  const imgLinkedIn = "../../img/footer-icono-linkedin.png"
+  const imgInstagram = "../../img/footer-icono-instagram.png"
 
   return (
     <>
