@@ -13,9 +13,7 @@ const NavBar = () => {
 
       <nav>
         <ul className='un-list'>
-
           <li><NavLink to="/create" className="nav-link"> CREATE </NavLink></li>
-
         </ul>
       </nav>
 

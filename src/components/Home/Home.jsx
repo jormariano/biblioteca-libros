@@ -6,11 +6,13 @@ const Home = () => {
 
   const store = useAppContext();
 
+  const imgArrow = "../../img/home-arrow.png"
+
   return (
     <>
       <div className='home-arrow'>
         <h2>Cargá tus libros y creá tu propio registro de lectura</h2>
-        <img src='./public/img/home-arrow.png' />
+        <img src={imgArrow} alt="arrow" />
       </div>
 
       <div className='home-container'>
