@@ -8,6 +8,7 @@ import Footer from './components/Footer/Footer.jsx'
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
 
 const App = () => {
+
   return (
     <>
       <Store>
